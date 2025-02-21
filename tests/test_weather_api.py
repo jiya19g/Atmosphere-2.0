@@ -13,12 +13,12 @@ def test_valid_city():
 # Test Empty City Name
 def test_empty_city():
     response = requests.get(f"{BASE_URL}?q=&appid={API_KEY}")
-    assert response.status_code == 400  # Bad request
+    assert response.status_code == 400  
 
 # Test Special Characters in City Name
 def test_special_characters():
     response = requests.get(f"{BASE_URL}?q=@@@@&appid={API_KEY}")
-    assert response.status_code == 404  # City not found
+    assert response.status_code == 404  
 
 # Test API with an invalid city
 def test_invalid_city():
@@ -28,7 +28,7 @@ def test_invalid_city():
 # Test API response time
 def test_response_time():
     response = requests.get(f"{BASE_URL}?q=New York&appid={API_KEY}")
-    assert response.elapsed.total_seconds() < 2  # Should respond in under 2s
+    assert response.elapsed.total_seconds() < 2  
 
 # Test API structure
 def test_response_structure():
